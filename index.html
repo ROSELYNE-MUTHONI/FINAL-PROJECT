@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthConnect - Telemedicine App</title>
+    
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #007bff;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background: #333;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        nav ul li a:hover {
+            background: #007bff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            background: white;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+
+        .sidebar {
+            width: 25%;
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>HealthConnect</h1>
+    <img src="HealthConnect Logo.png" alt="HealthConnect Logo">
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#signup">Sign Up</a></li>
+        <li><a href="#book-appointment">Book Appointment</a></li>
+    </ul>
+</nav>
+
+<!-- Main Content Area -->
+<div class="container">
+    <main>
+        <section id="Home">
+            <h2>Welcome to HealthConnect</h2>
+            <p>HealthConnect is your personal gateway to accessible, reliable, and efficient healthcare...</p>
+        </section>
+        
+        <section id="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>Instant Consultations:</strong> Get connected to a licensed healthcare provider within minutes.</li>
+                <li><strong>Specialist Appointments:</strong> Book virtual appointments with specialists in various fields.</li>
+                <li><strong>Prescription and Refills:</strong> Receive electronic prescriptions directly sent to your pharmacy.</li>
+                <li><strong>Health Monitoring Integration:</strong> Sync your app with wearable devices for real-time health data sharing.</li>
+            </ul>
+        </section>
+
+        <section id="signup" class="signup-form">
+            <h2>Patient Sign-Up</h2>
+            <form id="signupForm" onsubmit="return validateSignupForm(event)">
+                <div class="form-group">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                    <span id="firstNameError" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                    <span id="lastNameError" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <span id="emailError" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <span id="confirmPasswordError" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="tel" id="phone_number" name="phone_number" required>
+                    <span id="phoneError" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="date_of_birth">Date of Birth:</label>
+                    <input type="date" id="date_of_birth" name="date_of_birth" required>
+                    <span id="dobError" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <input type="radio" id="male" name="gender" value="male" required> Male
+                    <input type="radio" id="female" name="gender" value="female"> Female
+                    <span id="genderError" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                    <span id="addressError" class="error"></span>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+
+            <h2>Login Form</h2>
+            <form id="loginForm" onsubmit="return validateLoginForm()">
+                <div class="form-group">
+                    <label for="email-login">Email:</label>
+                    <input type="email" id="email-login" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password-login">Password:</label>
+                    <input type="password" id="password-login" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section id="book-appointment" class="appointment-form">
+            <h2>Book an Appointment</h2>
+            <form id="appointmentForm">
+                <label for="appointment-name">Full Name:</label>
+                <input type="text" id="appointment-name" name="appointment-name" placeholder="Enter your full name" required>
+                <label for="appointment-email">Email:</label>
+                <input type="email" id="appointment-email" name="appointment-email" placeholder="Enter your email" required>
+                <label for="doctor">Select Doctor:</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="">Choose a specialist</option>
+                    <option value="general">General Physician</option>
+                    <option value="cardiologist">Cardiologist</option>
+                    <option value="dermatologist">Dermatologist</option>
+                    <option value="psychologist">Psychologist</option>
+                </select>
+                <label for="date">Preferred Appointment Date:</label>
+                <input type="date" id="date" name="date" required>
+                <button type="submit">Book Appointment</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <input type="search" placeholder="Search...">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="#Home">HealthConnect Overview</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#signup">Sign Up</a></li>
+            <li><a href="#book-appointment">Book Appointment</a></li>
+        </ul>
+    </aside>
+</div>
+
+<footer>
+    <p>&copy; 2024 HealthConnect. All Rights Reserved.</p>
+    <p>Follow us on: <a href="#">Twitter</a> | <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+</footer>
+
+<script>
+   async function validateSignupForm(event) {
+    event.preventDefault(); // Prevent page reload
+    let isValid = true;
+    const formData = {};
+
+
+        // Clear previous errors
+        document.getElementById('firstNameError').innerText = '';
+        document.getElementById('lastNameError').innerText = '';
+        document.getElementById('emailError').innerText = '';
+        document.getElementById('confirmPasswordError').innerText = '';
+        document.getElementById('phoneError').innerText = '';
+        document.getElementById('dobError').innerText = '';
+        document.getElementById('genderError').innerText = '';
+        document.getElementById('addressError').innerText = '';
+
+        // Validate first name
+        const firstName = document.getElementById('first_name').value.trim();
+        if (!firstName) {
+            document.getElementById('firstNameError').innerText = 'First name is required.';
+            isValid = false;
+        } else {
+            formData.first_name = firstName;
+        }
+
+        // Validate last name
+        const lastName = document.getElementById('last_name').value.trim();
+        if (!lastName) {
+            document.getElementById('lastNameError').innerText = 'Last name is required.';
+            isValid = false;
+        } else {
+            formData.last_name = lastName;
+        }
+
+        // Validate email
+        const email = document.getElementById('email').value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            document.getElementById('emailError').innerText = 'Invalid email format.';
+            isValid = false;
+        } else {
+            formData.email = email;
+        }
+
+        // Validate password
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        if (password !== confirmPassword) {
+            document.getElementById('confirmPasswordError').innerText = 'Passwords do not match.';
+            isValid = false;
+        } else {
+            formData.password = password;
+        }
+
+        // Validate phone number
+        const phoneNumber = document.getElementById('phone_number').value;
+        const phonePattern = /^\d{10}$/; // Assuming a 10-digit phone number
+        if (!phonePattern.test(phoneNumber)) {
+            document.getElementById('phoneError').innerText = 'Invalid phone number format.';
+            isValid = false;
+        } else {
+            formData.phone_number = phoneNumber;
+        }
+
+        // Validate date of birth
+        const dob = new Date(document.getElementById('date_of_birth').value);
+        const today = new Date();
+        if (dob > today) {
+            document.getElementById('dobError').innerText = 'Date of birth cannot be in the future.';
+            isValid = false;
+        } else {
+            formData.date_of_birth = dob.toISOString().split('T')[0]; // Store in ISO format
+        }
+
+        // Validate gender
+        const genderSelected = document.querySelector('input[name="gender"]:checked');
+        if (!genderSelected) {
+            document.getElementById('genderError').innerText = 'Gender is required.';
+            isValid = false;
+        } else {
+            formData.gender = genderSelected.value;
+        }
+
+        // Validate address
+        const address = document.getElementById('address').value.trim();
+        if (!address) {
+            document.getElementById('addressError').innerText = 'Address is required.';
+            isValid = false;
+        } else {
+            formData.address = address;
+        }
+
+        // Proceed to send data if valid
+        if (isValid) {
+            try {
+                // Send data to the server
+                const response = await fetch('http://localhost:3300/patients/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Check if response is OK (status 200-299)
+                if (!response.ok) {
+                    throw new Error('Failed to register patient');
+                }
+
+                const data = await response.json();  
+                alert('New patient created!');
+            } catch (error) {
+                console.error(error.message);
+                alert('An error occurred during registration.');
+            }
+        }
+
+        return isValid; // Prevent form submission if invalid
+    }
+
+    function validateLoginForm() {
+        let isValid = true;
+
+        // Clear previous errors
+        document.getElementById('emailError').innerText = '';
+        document.getElementById('passwordError').innerText = '';
+
+        // Validate email
+        const email = document.getElementById('email-login').value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            document.getElementById('emailError').innerText = 'Invalid email format.';
+            isValid = false;
+        }
+
+        // Validate password
+        const password = document.getElementById('password-login').value.trim();
+        if (!password) {
+            document.getElementById('passwordError').innerText = 'Password is required.';
+            isValid = false;
+        }
+
+        return isValid; // Prevent form submission if invalid
+    }
+</script>
+
+
+</body>
+</html>

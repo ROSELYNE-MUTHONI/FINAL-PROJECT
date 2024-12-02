@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthConnect - Telemedicine App</title>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('HealthConnect Logo.png');
+    background-size: 200px; /* Adjust size as needed */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: luminosity;
+    opacity: 0.1; /* Adjust opacity to keep it faint */
+}
+  
+
+        header {
+            background: hsl(240, 100%, 100%);
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background: #333;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        nav ul li a:hover {
+            background: #007bff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            margin-right: 20px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .sidebar {
+            width: 25%;
+            background: rgba(248, 248, 248, 0.9); /* Slightly transparent background */
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>HealthConnect</h1>
+    <img src="HealthConnect Logo.png" alt="HealthConnect Logo">
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#signup">Sign Up</a></li>
+        <li><a href="#book-appointment">Book Appointment</a></li>
+    </ul>
+</nav>
+
+<!-- Main Content Area -->
+<div class="container">
+    <main>
+        <section id="Home">
+            <h2>Welcome to HealthConnect</h2>
+            <p>HealthConnect is your personal gateway to accessible, reliable, and efficient healthcare...</p>
+        </section>
+        
+        <section id="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>Instant Consultations:</strong> Get connected to a licensed healthcare provider within minutes.</li>
+                <li><strong>Specialist Appointments:</strong> Book virtual appointments with specialists in various fields.</li>
+                <li><strong>Prescription and Refills:</strong> Receive electronic prescriptions directly sent to your pharmacy.</li>
+                <li><strong>Health Monitoring Integration:</strong> Sync your app with wearable devices for real-time health data sharing.</li>
+            </ul>
+        </section>
+
+        <section id="signup" class="signup-form">
+            <!-- Sign-up form details -->
+        </section>
+
+        <section id="book-appointment" class="appointment-form">
+            <!-- Appointment form details -->
+        </section>
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <!-- Sidebar content -->
+    </aside>
+</div>
+
+<footer>
+    <p>&copy; 2024 HealthConnect. All Rights Reserved.</p>
+    <p>Follow us on: <a href="#">Twitter</a> | <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+</footer>
+
+</body>
+</html>
+
